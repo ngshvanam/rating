@@ -1,0 +1,36 @@
+{
+    "name": "rating",
+    "title": "jQuery Rating",
+    "description": "jQuery plug-in for easy rating with stars which configurable to modify the look and feel of rating bar.",
+    "demo" : "http://jq-plugins.herokuapp.com/rating.html",
+    "keywords": [
+        "rating",
+        "start",
+	"configurable"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Nagesh Vanam",
+        "url": "https://github.com/ngshvanam/rating/blob/master/README.md"
+
+    },
+    "maintainers": [
+        {
+            "name": "Nagesh Vanam",
+            "email": "nag.501@gmail.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/ngshvanam/rating/blob/master/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/ngshvanam/rating/issues",
+    "homepage": "https://github.com/ngshvanam/rating/blob/master/README.md",
+    "docs": "https://github.com/ngshvanam/rating/blob/master/README.md",
+    "download": "https://github.com/ngshvanam/rating/archive/master.zip",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}

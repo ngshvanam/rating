@@ -55,6 +55,8 @@
 
 		$(this).append($newCanv);
 
+		return this;
+		
 	}
 
 	function draw(ctx, rate) {

@@ -19,7 +19,12 @@
 	var settings = {}
 
 	$.fn.rateBar = function(options) {
-		settings = $.extend({}, options);
+		settings = $.extend({
+			defaultStarColor : '#555555',
+			ratedStarColor : '#FFD700',
+			onRate : function() {
+			}
+		}, options);
 
 		var $newCanv = $("<canvas width=80 height=20>Hello</canvas>");
 
@@ -28,7 +33,7 @@
 		draw(ctx, 0);
 
 		$newCanv.click(function(e) {
-			var x = Math.floor((e.pageX - $newCanv.offset().left) / 8);
+			var x = Math.floor((e.pageX - $newCanv.offset().left) / 16);
 			ctx.clear(true);
 			draw(ctx, x + 1);
 		});
@@ -44,8 +49,11 @@
 		$newCanv.mousemove(function(e) {
 			if (!mouseIsDown)
 				return;
-			var x = Math.floor((e.pageX - $newCanv.offset().left) / 8);
+			var x = Math.floor((e.pageX - $newCanv.offset().left) / 16);
 			ctx.clear(true);
+
+			settings.onRate(x + 1);
+
 			draw(ctx, x + 1);
 		});
 
@@ -56,15 +64,15 @@
 		$(this).append($newCanv);
 
 		return this;
-		
+
 	}
 
 	function draw(ctx, rate) {
-		star(ctx, 10, 10, 3, 5, 3, (rate >= 2) ? 1 : ((rate == 1) ? 0.5 : 0));
-		star(ctx, 25, 10, 3, 5, 3, (rate >= 4) ? 1 : ((rate == 3) ? 0.5 : 0));
-		star(ctx, 40, 10, 3, 5, 3, (rate >= 6) ? 1 : ((rate == 5) ? 0.5 : 0));
-		star(ctx, 55, 10, 3, 5, 3, (rate >= 8) ? 1 : ((rate == 7) ? 0.5 : 0));
-		star(ctx, 70, 10, 3, 5, 3, (rate >= 10) ? 1 : ((rate == 9) ? 0.5 : 0));
+		star(ctx, 10, 10, 3, 5, 3, (rate >= 1) ? 1 : 0);
+		star(ctx, 25, 10, 3, 5, 3, (rate >= 2) ? 1 : 0);
+		star(ctx, 40, 10, 3, 5, 3, (rate >= 3) ? 1 : 0);
+		star(ctx, 55, 10, 3, 5, 3, (rate >= 4) ? 1 : 0);
+		star(ctx, 70, 10, 3, 5, 3, (rate >= 5) ? 1 : 0);
 	}
 
 	function star(ctx, x, y, r, p, m, width) {
@@ -83,9 +91,9 @@
 		}
 
 		if (width == 1) {
-			ctx.fillStyle = "#FFD700";
+			ctx.fillStyle = settings.ratedStarColor;
 		} else {
-			ctx.fillStyle = "#555555";
+			ctx.fillStyle = settings.defaultStarColor;
 		}
 
 		ctx.fill();

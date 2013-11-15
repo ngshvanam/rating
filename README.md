@@ -1,8 +1,12 @@
 ##RATING
 
-
 ##SCRIPT
 ```
+
+<script type="text/javascript" src="/plugins/jquery.rating.js"></script>
+
+<script type="text/javascript">
+
 $(document).ready(function(){
   $(".display-item").rateBar({
 			defaultStarColor : '#777777',
@@ -12,6 +16,9 @@ $(document).ready(function(){
 			}
 	});
 });
+
+</script>
+
 ```
 ##HTML
 ```

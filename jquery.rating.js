@@ -35,6 +35,9 @@
 		$newCanv.click(function(e) {
 			var x = Math.floor((e.pageX - $newCanv.offset().left) / 16);
 			ctx.clear(true);
+
+			settings.onRate(x + 1);
+
 			draw(ctx, x + 1);
 		});
 
